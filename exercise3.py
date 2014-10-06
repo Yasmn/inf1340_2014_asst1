@@ -1,16 +1,44 @@
 #!/usr/bin/env python3
+__author__ = 'Susan Sim'
+__email__ = "ses@drsusansim.org"
 
-#this is to designate the results for each entry
-decide_rps = {}
-decide_rps [("rock" "paper")] = 2
-decide_rps [("rock" "scissors")] = 1
-decide_rps [("rock" "rock")] = 0
+__copyright__ = "2014 Susan Sim"
+__license__ = "MIT License"
 
-decide_rps [("scissors" "paper")] = 1
-decide_rps [("scissors" "rock")] = 2
-decide_rps [("scissors" "scissors")] = 0
+__status__ = "Prototype"
+# this is to designate the results for each entry
 
-decide_rps [("paper" "scissors")] = 2
-decide_rps [("paper" "rock")] = 1
-decide_rps [("paper" "paper")] = 0
 
+def decide_rps(player1, player2):
+    """ Returns the winner of rock, paper, scissors game for a given choice
+
+    :param:
+        player1, player2: players' choices (string)
+
+    :return:
+    0: if it's a tie
+    1: if player 1 wins
+    2: if player 2 wins
+
+    :raises:
+        TypeError if parameter is not a string
+        Invalid input if parameter is not one of the choices
+    """
+    # check the input
+    # raise error if not one of the valid choices (rock, paper,scissors)
+
+    if player1 and player2 in (rock, paper, scissors):
+        # add players choices in a data dictionary
+        result_check = {"Rock" "Paper": 2, "Rock" "Scissors": 1, "Rock" "Rock": 0, "Scissors" "Paper": 1,
+                        "Scissors" "Rock": 2, "Scissors" "Scissors": 0, "Paper" "Scissors": 2, "Paper" "Rock": 1,
+                        "Paper" "Paper": 0}
+        # check the result against players' choices
+        result = player1 + player2
+        print(result_check[result])
+    else:
+        raise TypeError("invalid input passed as a parameter")
+
+    return 1
+
+
+x = decide_rps("scissors", "roc")

@@ -21,7 +21,7 @@ __status__ = "Prototype"
 
 # imports one per line
 
-#import pytest
+import pytest
 
 
 def grade_to_gpa(grade):
@@ -44,11 +44,11 @@ def grade_to_gpa(grade):
         ValueError if parameter is out of range
     """
     if type(grade) is str:
-        if grade in ("A+", "a+", "A", "a", "A-", "a-", "B+", "b+", "B-", "b-", "B", "b", "FZ", "fz"):
+        if grade in ("A+", "A", "A-", "B+", "b+", "B-", "B", "FZ"):
             letter_grade = grade
-            # print("letter")  # remove this line once the code is implemented
             # check that the grade is one of the accepted values
             # assign grade to letter_grade
+
     elif type(grade) is int:
         if (grade >= 90) and (grade <= 100):
             grade = str("A+")
@@ -71,12 +71,12 @@ def grade_to_gpa(grade):
         elif (grade >= 0) and (grade <= 69):
             grade = str("FZ")
             letter_grade = str(grade)
-        # print("mark")
-        # remove this line once the e is implemented
+
         # check that grade is in the accepted range
         # convert the numeric grade to a letter grade
         # assign the value to letter_grade
         # hint: letter_grade = mark_to_letter(grade)
+
         else:
             print("error")
             raise ValueError("Invalid type passed as parameter")
@@ -88,6 +88,7 @@ def grade_to_gpa(grade):
 
     # write a long if-statement to convert letter_grade
     # assign the value to gpa
+
     if letter_grade == "A+" or grade == "A" or grade == "a+" or grade == "a":
         gpa = 4.0
 
