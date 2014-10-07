@@ -27,18 +27,17 @@ def decide_rps(player1, player2):
     # check the input
     # raise error if not one of the valid choices (rock, paper,scissors)
 
-    if player1 and player2 in (rock, paper, scissors):
+    if player1 and player2 in ("Rock", "Paper", "Scissors"):
         # add players choices in a data dictionary
         result_check = {"Rock" "Paper": 2, "Rock" "Scissors": 1, "Rock" "Rock": 0, "Scissors" "Paper": 1,
                         "Scissors" "Rock": 2, "Scissors" "Scissors": 0, "Paper" "Scissors": 2, "Paper" "Rock": 1,
                         "Paper" "Paper": 0}
         # check the result against players' choices
         result = player1 + player2
-        print(result_check[result])
+        return result_check[result]
     else:
         raise TypeError("invalid input passed as a parameter")
 
-    return 1
 
 
-x = decide_rps("scissors", "roc")
+

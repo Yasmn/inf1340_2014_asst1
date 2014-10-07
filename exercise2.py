@@ -61,7 +61,7 @@ def checksum(upc):
     int_list = [int(i) for i in upc_list]
     odd_digits = int_list[0] + int_list[2] + int_list[4] + int_list[6] + int_list[8] + int_list[10]
     # calculate the twelfth digit
-    odd_digits *= odd_digits
+    odd_digits *= 3
     even_digits = int_list[1] + int_list[3] + int_list[5] + int_list[7] + int_list[9]
     result = odd_digits + even_digits
     result %= 10
@@ -73,4 +73,4 @@ def checksum(upc):
         # check against the the twelfth digit
         # return True if they are equal, False otherwise
     else:
-        return True
+        return False

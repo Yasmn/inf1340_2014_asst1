@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+__author__ = 'user'
 
 """ Assignment 1, Exercise 1, INF1340, Fall, 2014. Grade to gpa conversion
 
@@ -21,8 +21,6 @@ __status__ = "Prototype"
 
 # imports one per line
 
-import pytest
-
 
 def grade_to_gpa(grade):
     """
@@ -33,8 +31,6 @@ def grade_to_gpa(grade):
             If integer, accepted values are 0-100.
             If string, accepted values are A+, A, A-, B+, B, B-, FZ
 
-
-
     :return:
         float: The equivalent GPA
             Value is 0.0-4.0
@@ -43,13 +39,19 @@ def grade_to_gpa(grade):
         TypeError if parameter is not a string or integer
         ValueError if parameter is out of range
     """
+    letter_grade = ""
+    gpa = 0.0
+
     if type(grade) is str:
         if grade in ("A+", "A", "A-", "B+", "b+", "B-", "B", "FZ"):
             letter_grade = grade
             # check that the grade is one of the accepted values
             # assign grade to letter_grade
+        else:
+            raise ValueError("Parameter is out of range")
 
     elif type(grade) is int:
+
         if (grade >= 90) and (grade <= 100):
             grade = str("A+")
             letter_grade = str(grade)
@@ -71,16 +73,12 @@ def grade_to_gpa(grade):
         elif (grade >= 0) and (grade <= 69):
             grade = str("FZ")
             letter_grade = str(grade)
-
-        # check that grade is in the accepted range
-        # convert the numeric grade to a letter grade
-        # assign the value to letter_grade
-        # hint: letter_grade = mark_to_letter(grade)
-
         else:
-            print("error")
-            raise ValueError("Invalid type passed as parameter")
-
+            raise ValueError("Parameter is out of range")
+    # check that grade is in the accepted range
+    # convert the numeric grade to a letter grade
+    # assign the value to letter_grade
+    # hint: letter_grade = mark_to_letter(grade)
     else:
         # raise a TypeError exception
         print("error")
@@ -88,23 +86,21 @@ def grade_to_gpa(grade):
 
     # write a long if-statement to convert letter_grade
     # assign the value to gpa
-
-    if letter_grade == "A+" or grade == "A" or grade == "a+" or grade == "a":
+    if letter_grade == "A+" or letter_grade == "A":
         gpa = 4.0
-
-    if letter_grade == "A-" or grade == "a-":
+    elif letter_grade == "A-":
         gpa = 3.7
 
-    if letter_grade == "B+" or grade == "b+":
+    elif letter_grade == "B+":
         gpa = 3.3
 
-    if letter_grade == "B" or grade == "b":
+    elif letter_grade == "B":
         gpa = 3.0
 
-    if letter_grade == "B-" or grade == "b-":
+    elif letter_grade == "B-":
         gpa = 2.7
 
-    if letter_grade == "FZ" or grade == "fz":
+    elif letter_grade == "FZ":
         gpa = 0.0
 
     return gpa
